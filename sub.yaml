@@ -7,17 +7,17 @@ external-controller: :9090
 dns:
   enabled: true
   nameserver:
-    - 8.8.8.8
-    - 1.1.1.1
+    - 119.29.29.29
+    - 223.5.5.5
   fallback:
     - 8.8.8.8
     - 8.8.4.4
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: RackNerd, server: racknerdus.840501.xyz, port: 32462, ports: 30000-40000, client-fingerprint: chrome, type: hysteria2, password: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, auth: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, sni: racknerdus.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: Akile, server: akileus.840501.xyz, port: 31059, ports: 30000-40000, client-fingerprint: chrome, type: hysteria2, password: d21853bf-0b05-420b-855d-274c123104c5, auth: d21853bf-0b05-420b-855d-274c123104c5, sni: akileus.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: Desi, server: desi.840501.xyz, port: 26146, ports: 30000-40000, client-fingerprint: chrome, type: hysteria2, password: 71175b29-99b2-4e9f-8b03-ba6988da8a47, auth: 71175b29-99b2-4e9f-8b03-ba6988da8a47, sni: desi.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: RackNerd, server: racknerdus.840501.xyz, port: 32462, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, auth: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, sni: racknerdus.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: Akile, server: akileus.840501.xyz, port: 31059, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: d21853bf-0b05-420b-855d-274c123104c5, auth: d21853bf-0b05-420b-855d-274c123104c5, sni: akileus.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: Desi, server: desi.840501.xyz, port: 26146, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: 71175b29-99b2-4e9f-8b03-ba6988da8a47, auth: 71175b29-99b2-4e9f-8b03-ba6988da8a47, sni: desi.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
