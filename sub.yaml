@@ -17,7 +17,7 @@ dns:
 proxies:
   - {name: RackNerd, server: racknerdus.840501.xyz, port: 32462, ports: 30000-40000, hope-interval: 15, up: 30, down: 1000, client-fingerprint: chrome, type: hysteria2, password: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, auth: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, sni: racknerdus.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - {name: Akile, server: akileus.840501.xyz, port: 18617, ports: 30000-40000, hope-interval: 15, up: 30, down: 1000, client-fingerprint: chrome, type: hysteria2, password: 56333125-b7d1-4e8d-a555-91a06a3adf9a, auth: 56333125-b7d1-4e8d-a555-91a06a3adf9a, sni: akileus.840501.xyz, skip-cert-verify: false, alpn: [h3]}
-#  - {name: Desi, server: desi.840501.xyz, port: 19179, ports: 30000-40000, hope-interval: 15, up: 30, down: 1000, client-fingerprint: chrome, type: hysteria2, password: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, auth: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, sni: desi.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: Desi, server: desi.840501.xyz, port: 19179, ports: 30000-40000, hope-interval: 15, up: 30, down: 1000, client-fingerprint: chrome, type: hysteria2, password: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, auth: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, sni: desi.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
@@ -27,7 +27,7 @@ proxy-groups:
     proxies:
       - RackNerd
       - Akile
-#      - Desi
+      - Desi
   - name: 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -37,13 +37,13 @@ proxy-groups:
     proxies:
       - RackNerd
       - Akile
-#      - Desi
+      - Desi
   - name: 手动选择
     type: select
     proxies:
       - RackNerd
       - Akile
-#      - Desi
+      - Desi
   - name: 国内网站
     type: select
     proxies:
