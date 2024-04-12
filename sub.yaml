@@ -27,7 +27,7 @@ proxy-groups:
     proxies:
       - RackNerd
       - Akile
-      - Desi
+#      - Desi
   - name: 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -37,13 +37,13 @@ proxy-groups:
     proxies:
       - RackNerd
       - Akile
-      - Desi
+#      - Desi
   - name: 手动选择
     type: select
     proxies:
       - RackNerd
       - Akile
-      - Desi
+#      - Desi
   - name: 国内网站
     type: select
     proxies:
