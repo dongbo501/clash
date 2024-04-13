@@ -8,7 +8,7 @@ dns:
   enabled: true
   nameserver:
     - 8.8.8.8
-    - 1.1.1.1
+    - 8.8.4.4
   fallback:
     - 8.8.8.8
     - 8.8.4.4
