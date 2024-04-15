@@ -19,6 +19,7 @@ proxies:
   - {name: A2, server: akileus.840501.xyz, port: 18617, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 56333125-b7d1-4e8d-a555-91a06a3adf9a, auth: 56333125-b7d1-4e8d-a555-91a06a3adf9a, sni: akileus.840501.xyz, skip-cert-verify: false, alpn: [h3]}
   #- {name: D1, server: desi.840501.xyz, port: 19179, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, auth: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, sni: desi.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - {name: A1, server: a1.840501.xyz, port: 37081, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 794e6f8a-a688-4ddc-bbdb-ee1f36b49bcd, auth: 794e6f8a-a688-4ddc-bbdb-ee1f36b49bcd, sni: a1.840501.xyz, skip-cert-verify: false, alpn: [h3]}
+  - {name: O1, server: o2.840501.xyz, port: 42464, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: e6c5adb3-542c-42ed-9b51-40ea33ef5a67, auth: e6c5adb3-542c-42ed-9b51-40ea33ef5a67, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
@@ -29,6 +30,7 @@ proxy-groups:
       - R1
       - A1
       - A2
+      - O1
     #  - D1
   - name: 负载均衡
     type: load-balance
@@ -40,6 +42,7 @@ proxy-groups:
       - R1
       - A1
       - A2
+      - O1
     #  - D1
   - name: 手动选择
     type: select
@@ -47,6 +50,7 @@ proxy-groups:
       - R1
       - A1
       - A2
+      - O1
     #  - D1
   - name: 国内网站
     type: select
