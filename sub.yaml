@@ -17,6 +17,7 @@ dns:
 proxies:
   - {name: O2, server: o2.840501.xyz, port: 11557, ports: 30001-31000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8f0df430-9418-40d1-aee6-eb2dffc698b9, auth: 8f0df430-9418-40d1-aee6-eb2dffc698b9, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - {name: O1, server: o1.840501.xyz, port: 11518, ports: 31001-32000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, auth: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: R1, server: r1.840501.xyz, port: 11519, ports: 32001-33000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps" client-fingerprint: chrome, type: hysteria2, password: e565cfea-ee56-42ae-9ce5-b3e33de93794, auth: e565cfea-ee56-42ae-9ce5-b3e33de93794, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
@@ -26,6 +27,7 @@ proxy-groups:
     proxies:
       - O1
       - O2
+      - R1
   - name: 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -35,11 +37,13 @@ proxy-groups:
     proxies:
       - O1
       - O2
+      - R1
   - name: 手动选择
     type: select
     proxies:
       - O1
       - O2
+      - R1
   - name: 国内网站
     type: select
     proxies:
