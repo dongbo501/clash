@@ -17,6 +17,7 @@ dns:
 proxies:
   - {name: O2, server: o2.840501.xyz, port: 11557, ports: 30001-31000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8f0df430-9418-40d1-aee6-eb2dffc698b9, auth: 8f0df430-9418-40d1-aee6-eb2dffc698b9, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - {name: O1, server: o1.840501.xyz, port: 11518, ports: 31001-32000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, auth: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+proxy-groups:
   - name: 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -492,13 +493,16 @@ rules:
   - DOMAIN-SUFFIX,lpl.com.cn,游戏平台
   - DOMAIN-SUFFIX,molesports.com,游戏平台
   - DOMAIN-SUFFIX,playvalorant.com,游戏平台
+  - DOMAIN-SUFFIX,pvp.net,游戏平台
   - DOMAIN-SUFFIX,pvp.tv,游戏平台
   - DOMAIN-SUFFIX,rgpub.io,游戏平台
   - DOMAIN-SUFFIX,riot-games.com,游戏平台
   - DOMAIN-SUFFIX,riot.com,游戏平台
   - DOMAIN-SUFFIX,riot.net,游戏平台
+  - DOMAIN-SUFFIX,riotcdn.net,游戏平台
   - DOMAIN-SUFFIX,riotforgegames.com,游戏平台
   - DOMAIN-SUFFIX,riotgames.co.kr,游戏平台
+  - DOMAIN-SUFFIX,riotgames.com,游戏平台
   - DOMAIN-SUFFIX,riotgames.info,游戏平台
   - DOMAIN-SUFFIX,riotgames.jp,游戏平台
   - DOMAIN-SUFFIX,riotgames.net,游戏平台
@@ -560,9 +564,6 @@ rules:
   - DOMAIN-SUFFIX,ubisoft-uplay-savegames.s3.amazonaws.com,游戏平台
   - DOMAIN-SUFFIX,ubisoft.com,游戏平台
   - DOMAIN-SUFFIX,uplay.com,游戏平台
-  - DOMAIN-SUFFIX,pvp.net,游戏平台
-  - DOMAIN-SUFFIX,riotcdn.net,游戏平台
-  - DOMAIN-SUFFIX,riotgames.com,游戏平台
   - DOMAIN-SUFFIX,beth.games,游戏平台
   - DOMAIN-SUFFIX,bethesda.net,游戏平台
   - DOMAIN-SUFFIX,bethesdagamestudios.com,游戏平台
@@ -609,20 +610,16 @@ rules:
   - IP-CIDR,210.242.235.6/32,游戏平台,no-resolve
   - IP-CIDR,54.94.196.47/32,游戏平台,no-resolve
   - IP-CIDR,182.162.132.1/32,游戏平台,no-resolve
-  - IP-CIDR,103.4.114.233/32,游戏平台,no-resolve
   - IP-CIDR,182.162.116.1/32,游戏平台,no-resolve
-  - IP-CIDR,185.60.112.157/32,游戏平台,no-resolve
-  - IP-CIDR,185.60.112.158/32,游戏平台,no-resolve
   - IP-CIDR,202.9.67.59/32,游戏平台,no-resolve
   - IP-CIDR,203.69.111.4/32,游戏平台,no-resolve
-  - IP-CIDR,24.105.30.129/32,游戏平台,no-resolve
-  - IP-CIDR,24.105.62.129/32,游戏平台,no-resolve
   - IP-CIDR,54.207.104.145/32,游戏平台,no-resolve
   - IP-CIDR,35.192.0.0/12,游戏平台,no-resolve
   - IP-CIDR,203.66.81.98/32,游戏平台,no-resolve
   - IP-CIDR,211.234.110.1/32,游戏平台,no-resolve
+  - IP-CIDR,24.105.30.129/32,游戏平台,no-resolve
   - IP-CIDR,54.207.107.12/32,游戏平台,no-resolve
-  - IP-CIDR,185.60.114.159/32,游戏平台,no-resolve
+  - IP-CIDR,103.4.114.233/32,游戏平台,no-resolve
   - IP-CIDR,202.9.67.254/32,游戏平台,no-resolve
   - IP-CIDR,222.231.22.1/32,游戏平台,no-resolve
   - IP-CIDR,13.210.25.233/32,游戏平台,no-resolve
@@ -649,8 +646,12 @@ rules:
   - IP-CIDR,54.248.64.192/32,游戏平台,no-resolve
   - IP-CIDR,103.4.115.248/32,游戏平台,no-resolve
   - IP-CIDR,137.221.105.2/32,游戏平台,no-resolve
+  - IP-CIDR,185.60.112.157/32,游戏平台,no-resolve
+  - IP-CIDR,185.60.112.158/32,游戏平台,no-resolve
+  - IP-CIDR,185.60.114.159/32,游戏平台,no-resolve
   - IP-CIDR,210.71.148.11/32,游戏平台,no-resolve
   - IP-CIDR,211.115.104.1/32,游戏平台,no-resolve
+  - IP-CIDR,24.105.62.129/32,游戏平台,no-resolve
   - DOMAIN,appldnld.apple.com.edgesuite.net,苹果服务
   - DOMAIN,apple-events.akamaized.net,苹果服务
   - DOMAIN,appleworldwidedeveloper.hb-api.omtrdc.net,苹果服务
@@ -1788,6 +1789,7 @@ rules:
   - DOMAIN-SUFFIX,app-store.wang,苹果服务
   - DOMAIN-SUFFIX,appe-store.com,苹果服务
   - DOMAIN-SUFFIX,apple-appstore.cn,苹果服务
+  - DOMAIN-SUFFIX,apple-icloud.cn,苹果服务
   - DOMAIN-SUFFIX,apple-itunes.cn,苹果服务
   - DOMAIN-SUFFIX,apple-pay.com,苹果服务
   - DOMAIN-SUFFIX,apple-pay.rs,苹果服务
@@ -1798,6 +1800,7 @@ rules:
   - DOMAIN-SUFFIX,appleappstore.tv,苹果服务
   - DOMAIN-SUFFIX,appledarwin.com,苹果服务
   - DOMAIN-SUFFIX,appledarwin.net,苹果服务
+  - DOMAIN-SUFFIX,appleicloud.cn,苹果服务
   - DOMAIN-SUFFIX,appleid-applemx.com,苹果服务
   - DOMAIN-SUFFIX,appleid-applemx.us,苹果服务
   - DOMAIN-SUFFIX,appleid-iclou.com,苹果服务
@@ -1806,6 +1809,7 @@ rules:
   - DOMAIN-SUFFIX,appleid.com,苹果服务
   - DOMAIN-SUFFIX,appleid.hamburg,苹果服务
   - DOMAIN-SUFFIX,appleid.hk,苹果服务
+  - DOMAIN-SUFFIX,applemx-icloud.com,苹果服务
   - DOMAIN-SUFFIX,appleone.audio,苹果服务
   - DOMAIN-SUFFIX,appleone.blog,苹果服务
   - DOMAIN-SUFFIX,appleone.chat,苹果服务
@@ -1852,7 +1856,49 @@ rules:
   - DOMAIN-SUFFIX,darwinsource.com,苹果服务
   - DOMAIN-SUFFIX,darwinsource.org,苹果服务
   - DOMAIN-SUFFIX,darwinsourcecode.com,苹果服务
+  - DOMAIN-SUFFIX,icloud-apple.cn,苹果服务
+  - DOMAIN-SUFFIX,icloud-content.com,苹果服务
+  - DOMAIN-SUFFIX,icloud-isupport.com,苹果服务
+  - DOMAIN-SUFFIX,icloud.ch,苹果服务
+  - DOMAIN-SUFFIX,icloud.com,苹果服务
+  - DOMAIN-SUFFIX,icloud.com.cn,苹果服务
+  - DOMAIN-SUFFIX,icloud.de,苹果服务
+  - DOMAIN-SUFFIX,icloud.ee,苹果服务
+  - DOMAIN-SUFFIX,icloud.fi,苹果服务
+  - DOMAIN-SUFFIX,icloud.fr,苹果服务
+  - DOMAIN-SUFFIX,icloud.hu,苹果服务
+  - DOMAIN-SUFFIX,icloud.ie,苹果服务
+  - DOMAIN-SUFFIX,icloud.is,苹果服务
+  - DOMAIN-SUFFIX,icloud.jp,苹果服务
+  - DOMAIN-SUFFIX,icloud.lv,苹果服务
+  - DOMAIN-SUFFIX,icloud.net.cn,苹果服务
+  - DOMAIN-SUFFIX,icloud.om,苹果服务
+  - DOMAIN-SUFFIX,icloud.org,苹果服务
+  - DOMAIN-SUFFIX,icloud.pt,苹果服务
+  - DOMAIN-SUFFIX,icloud.ro,苹果服务
+  - DOMAIN-SUFFIX,icloud.se,苹果服务
+  - DOMAIN-SUFFIX,icloud.si,苹果服务
+  - DOMAIN-SUFFIX,icloud.sk,苹果服务
+  - DOMAIN-SUFFIX,icloud.vn,苹果服务
+  - DOMAIN-SUFFIX,icloudads.net,苹果服务
+  - DOMAIN-SUFFIX,icloudapple.cn,苹果服务
+  - DOMAIN-SUFFIX,icloudbox.net,苹果服务
+  - DOMAIN-SUFFIX,icloudbrowser.net,苹果服务
+  - DOMAIN-SUFFIX,icloude.com,苹果服务
+  - DOMAIN-SUFFIX,icloudhome.com,苹果服务
+  - DOMAIN-SUFFIX,icloudmail.net,苹果服务
+  - DOMAIN-SUFFIX,icloudmusic.net,苹果服务
+  - DOMAIN-SUFFIX,icloudnet.net,苹果服务
+  - DOMAIN-SUFFIX,icloudo.com,苹果服务
+  - DOMAIN-SUFFIX,icloudo.de,苹果服务
+  - DOMAIN-SUFFIX,icloudo.net,苹果服务
+  - DOMAIN-SUFFIX,icloudos.de,苹果服务
+  - DOMAIN-SUFFIX,icloudos.net,苹果服务
+  - DOMAIN-SUFFIX,icloudpay.net,苹果服务
+  - DOMAIN-SUFFIX,icloudsecure.net,苹果服务
+  - DOMAIN-SUFFIX,icloudsetup.com,苹果服务
   - DOMAIN-SUFFIX,ids-apple.com,苹果服务
+  - DOMAIN-SUFFIX,ios-icloud.com,苹果服务
   - DOMAIN-SUFFIX,itun.es,苹果服务
   - DOMAIN-SUFFIX,itunbes.com,苹果服务
   - DOMAIN-SUFFIX,ituneas.com,苹果服务
@@ -1886,8 +1932,12 @@ rules:
   - DOMAIN-SUFFIX,itunesu.com,苹果服务
   - DOMAIN-SUFFIX,itunesu.net,苹果服务
   - DOMAIN-SUFFIX,iutunes.com,苹果服务
+  - DOMAIN-SUFFIX,me.com,苹果服务
   - DOMAIN-SUFFIX,myappleid.com,苹果服务
+  - DOMAIN-SUFFIX,myicloud.net,苹果服务
+  - DOMAIN-SUFFIX,mylcloud.net,苹果服务
   - DOMAIN-SUFFIX,tvappstore.net,苹果服务
+  - DOMAIN-SUFFIX,wwwicloud.com,苹果服务
   - DOMAIN-SUFFIX,wwwitunes.com,苹果服务
   - DOMAIN-SUFFIX,aplestore.com,苹果服务
   - DOMAIN-SUFFIX,aplleipods.com,苹果服务
@@ -2158,57 +2208,8 @@ rules:
   - DOMAIN-SUFFIX,cdn-apple.com,苹果服务
   - DOMAIN-SUFFIX,digicert.com,苹果服务
   - DOMAIN-SUFFIX,apple-cloudkit.com,苹果服务
-  - DOMAIN-SUFFIX,apple-icloud.cn,苹果服务
   - DOMAIN-SUFFIX,apple-livephotoskit.com,苹果服务
-  - DOMAIN-SUFFIX,appleicloud.cn,苹果服务
-  - DOMAIN-SUFFIX,applemx-icloud.com,苹果服务
   - DOMAIN-SUFFIX,apzones.com,苹果服务
-  - DOMAIN-SUFFIX,icloud-apple.cn,苹果服务
-  - DOMAIN-SUFFIX,icloud-content.com,苹果服务
-  - DOMAIN-SUFFIX,icloud-isupport.com,苹果服务
-  - DOMAIN-SUFFIX,icloud.ch,苹果服务
-  - DOMAIN-SUFFIX,icloud.com,苹果服务
-  - DOMAIN-SUFFIX,icloud.com.cn,苹果服务
-  - DOMAIN-SUFFIX,icloud.de,苹果服务
-  - DOMAIN-SUFFIX,icloud.ee,苹果服务
-  - DOMAIN-SUFFIX,icloud.fi,苹果服务
-  - DOMAIN-SUFFIX,icloud.fr,苹果服务
-  - DOMAIN-SUFFIX,icloud.hu,苹果服务
-  - DOMAIN-SUFFIX,icloud.ie,苹果服务
-  - DOMAIN-SUFFIX,icloud.is,苹果服务
-  - DOMAIN-SUFFIX,icloud.jp,苹果服务
-  - DOMAIN-SUFFIX,icloud.lv,苹果服务
-  - DOMAIN-SUFFIX,icloud.net.cn,苹果服务
-  - DOMAIN-SUFFIX,icloud.om,苹果服务
-  - DOMAIN-SUFFIX,icloud.org,苹果服务
-  - DOMAIN-SUFFIX,icloud.pt,苹果服务
-  - DOMAIN-SUFFIX,icloud.ro,苹果服务
-  - DOMAIN-SUFFIX,icloud.se,苹果服务
-  - DOMAIN-SUFFIX,icloud.si,苹果服务
-  - DOMAIN-SUFFIX,icloud.sk,苹果服务
-  - DOMAIN-SUFFIX,icloud.vn,苹果服务
-  - DOMAIN-SUFFIX,icloudads.net,苹果服务
-  - DOMAIN-SUFFIX,icloudapple.cn,苹果服务
-  - DOMAIN-SUFFIX,icloudbox.net,苹果服务
-  - DOMAIN-SUFFIX,icloudbrowser.net,苹果服务
-  - DOMAIN-SUFFIX,icloude.com,苹果服务
-  - DOMAIN-SUFFIX,icloudhome.com,苹果服务
-  - DOMAIN-SUFFIX,icloudmail.net,苹果服务
-  - DOMAIN-SUFFIX,icloudmusic.net,苹果服务
-  - DOMAIN-SUFFIX,icloudnet.net,苹果服务
-  - DOMAIN-SUFFIX,icloudo.com,苹果服务
-  - DOMAIN-SUFFIX,icloudo.de,苹果服务
-  - DOMAIN-SUFFIX,icloudo.net,苹果服务
-  - DOMAIN-SUFFIX,icloudos.de,苹果服务
-  - DOMAIN-SUFFIX,icloudos.net,苹果服务
-  - DOMAIN-SUFFIX,icloudpay.net,苹果服务
-  - DOMAIN-SUFFIX,icloudsecure.net,苹果服务
-  - DOMAIN-SUFFIX,icloudsetup.com,苹果服务
-  - DOMAIN-SUFFIX,ios-icloud.com,苹果服务
-  - DOMAIN-SUFFIX,me.com,苹果服务
-  - DOMAIN-SUFFIX,myicloud.net,苹果服务
-  - DOMAIN-SUFFIX,mylcloud.net,苹果服务
-  - DOMAIN-SUFFIX,wwwicloud.com,苹果服务
   - DOMAIN-KEYWORD,apple-support.akadns.net,苹果服务
   - DOMAIN-KEYWORD,apple.com.akadns.net,苹果服务
   - DOMAIN-KEYWORD,apple.com.edgekey.net,苹果服务
