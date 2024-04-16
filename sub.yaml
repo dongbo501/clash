@@ -15,9 +15,9 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: O2, server: o2.840501.xyz, port: 11557, ports: 30001-31000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8f0df430-9418-40d1-aee6-eb2dffc698b9, auth: 8f0df430-9418-40d1-aee6-eb2dffc698b9, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: O1, server: o1.840501.xyz, port: 11518, ports: 31001-32000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, auth: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: R1, server: r1.840501.xyz, port: 11519, ports: 32001-33000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps" client-fingerprint: chrome, type: hysteria2, password: e565cfea-ee56-42ae-9ce5-b3e33de93794, auth: e565cfea-ee56-42ae-9ce5-b3e33de93794, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: O2, server: o2.840501.xyz, port: 11557, ports: 30001-31000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8f0df430-9418-40d1-aee6-eb2dffc698b9, auth: 8f0df430-9418-40d1-aee6-eb2dffc698b9, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: O1, server: o1.840501.xyz, port: 11518, ports: 31001-32000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, auth: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: R1, server: r1.840501.xyz, port: 11519, ports: 32001-33000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: e565cfea-ee56-42ae-9ce5-b3e33de93794, auth: e565cfea-ee56-42ae-9ce5-b3e33de93794, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
@@ -73,6 +73,36 @@ proxy-groups:
       - DIRECT
       - 手动选择
 rules:
+  - DOMAIN-SUFFIX,atom.io,国外网站
+  - DOMAIN-SUFFIX,dependabot.com,国外网站
+  - DOMAIN-SUFFIX,ghcr.io,国外网站
+  - DOMAIN-SUFFIX,git.io,国外网站
+  - DOMAIN-SUFFIX,github-atom-io-herokuapp-com.freetls.fastly.net,国外网站
+  - DOMAIN-SUFFIX,github-avatars.oss-cn-hongkong.aliyuncs.com,国外网站
+  - DOMAIN-SUFFIX,github-cloud.s3.amazonaws.com,国外网站
+  - DOMAIN-SUFFIX,github.blog,国外网站
+  - DOMAIN-SUFFIX,github.com,国外网站
+  - DOMAIN-SUFFIX,github.community,国外网站
+  - DOMAIN-SUFFIX,github.dev,国外网站
+  - DOMAIN-SUFFIX,github.io,国外网站
+  - DOMAIN-SUFFIX,githubapp.com,国外网站
+  - DOMAIN-SUFFIX,githubassets.com,国外网站
+  - DOMAIN-SUFFIX,githubhackathon.com,国外网站
+  - DOMAIN-SUFFIX,githubnext.com,国外网站
+  - DOMAIN-SUFFIX,githubpreview.dev,国外网站
+  - DOMAIN-SUFFIX,githubstatus.com,国外网站
+  - DOMAIN-SUFFIX,githubuniverse.com,国外网站
+  - DOMAIN-SUFFIX,githubusercontent.com,国外网站
+  - DOMAIN-SUFFIX,myoctocat.com,国外网站
+  - DOMAIN-SUFFIX,npm.community,国外网站
+  - DOMAIN-SUFFIX,npmjs.com,国外网站
+  - DOMAIN-SUFFIX,npmjs.org,国外网站
+  - DOMAIN-SUFFIX,opensource.guide,国外网站
+  - DOMAIN-SUFFIX,rawgit.com,国外网站
+  - DOMAIN-SUFFIX,rawgithub.com,国外网站
+  - DOMAIN-SUFFIX,repo.new,国外网站
+  - DOMAIN-SUFFIX,thegithubshop.com,国外网站
+  - DOMAIN-KEYWORD,github,国外网站
   - DOMAIN,eaasserts-a.akamaihd.net,游戏平台
   - DOMAIN,originasserts.akamaized.net,游戏平台
   - DOMAIN,gog.salesmanago.com,游戏平台
