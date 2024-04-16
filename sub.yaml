@@ -15,26 +15,16 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: R1, server: racknerdus.840501.xyz, port: 32462, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, auth: ee860c6d-a0f7-4aa9-8c77-eb7de1be8cf0, sni: racknerdus.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: A2, server: akileus.840501.xyz, port: 18617, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 56333125-b7d1-4e8d-a555-91a06a3adf9a, auth: 56333125-b7d1-4e8d-a555-91a06a3adf9a, sni: akileus.840501.xyz, skip-cert-verify: false, alpn: [h3]}
-  #- {name: D1, server: desi.840501.xyz, port: 19179, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, auth: ec9a78ff-a67d-480c-9fb9-2949a73a7f02, sni: desi.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: A1, server: a1.840501.xyz, port: 37081, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 794e6f8a-a688-4ddc-bbdb-ee1f36b49bcd, auth: 794e6f8a-a688-4ddc-bbdb-ee1f36b49bcd, sni: a1.840501.xyz, skip-cert-verify: false, alpn: [h3]}
- # - {name: O1, server: o2.840501.xyz, port: 42464, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: e6c5adb3-542c-42ed-9b51-40ea33ef5a67, auth: e6c5adb3-542c-42ed-9b51-40ea33ef5a67, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: O1, server: o2.840501.xyz, port: 23660, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: 04feaad1-bb35-40ee-8ec8-1f8d1058152a, auth: 04feaad1-bb35-40ee-8ec8-1f8d1058152a, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: O2, server: o3.840501.xyz, port: 35136, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: eab69f04-8c88-425e-9660-c2f69446b357, auth: eab69f04-8c88-425e-9660-c2f69446b357, sni: o3.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-proxy-groups:
+  - {name: O2, server: o2.840501.xyz, port: 11557, ports: 30001-31000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8f0df430-9418-40d1-aee6-eb2dffc698b9, auth: 8f0df430-9418-40d1-aee6-eb2dffc698b9, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: O1, server: o1.840501.xyz, port: 11518, ports: 31001-32000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, auth: 4cdf36c7-e9fb-4737-ba83-9db446b5cb41, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - name: 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - R1
-      - A1
-      - A2
       - O1
       - O2
-    #  - D1
   - name: 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -42,21 +32,13 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - R1
-      - A1
-      - A2
       - O1
       - O2
-    #  - D1
   - name: 手动选择
     type: select
     proxies:
-      - R1
-      - A1
-      - A2
       - O1
       - O2
-    #  - D1
   - name: 国内网站
     type: select
     proxies:
