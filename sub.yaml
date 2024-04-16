@@ -21,6 +21,7 @@ proxies:
   - {name: A1, server: a1.840501.xyz, port: 37081, ports: 30000-40000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 794e6f8a-a688-4ddc-bbdb-ee1f36b49bcd, auth: 794e6f8a-a688-4ddc-bbdb-ee1f36b49bcd, sni: a1.840501.xyz, skip-cert-verify: false, alpn: [h3]}
  # - {name: O1, server: o2.840501.xyz, port: 42464, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: e6c5adb3-542c-42ed-9b51-40ea33ef5a67, auth: e6c5adb3-542c-42ed-9b51-40ea33ef5a67, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - {name: O1, server: o2.840501.xyz, port: 23660, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: 04feaad1-bb35-40ee-8ec8-1f8d1058152a, auth: 04feaad1-bb35-40ee-8ec8-1f8d1058152a, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: O2, server: o3.840501.xyz, port: 35136, ports: 30000-40000, hope-interval: 15, client-fingerprint: chrome, type: hysteria2, password: eab69f04-8c88-425e-9660-c2f69446b357, auth: eab69f04-8c88-425e-9660-c2f69446b357, sni: o3.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
