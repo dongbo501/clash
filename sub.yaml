@@ -38,7 +38,18 @@ proxy-groups:
       - O3
       - O4
       - R1
-  - name: 负载均衡
+  - name: 甲骨文负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - O1
+      - O2
+      - O3
+      - O4
+  - name: 美国负载均衡
     type: load-balance
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
@@ -47,12 +58,8 @@ proxy-groups:
     proxies:
       - A1
       - A2
-      - D1
-      - O1
-      - O2
-      - O3
-      - O4
       - R1
+      - D1
   - name: 手动选择
     type: select
     proxies:
@@ -68,27 +75,27 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 自动选择
-      - 手动选择
-      - 负载均衡
   - name: 游戏平台
     type: select
     proxies:
       - DIRECT
       - 自动选择
       - 手动选择
-      - 负载均衡
+      - 甲骨文负载均衡
+      - 美国负载均衡
   - name: 苹果服务
     type: select
     proxies:
       - DIRECT
       - 自动选择
       - 手动选择
-      - 负载均衡
+      - 甲骨文负载均衡
+      - 美国负载均衡
   - name: 国外网站
     type: select
     proxies:
-      - 负载均衡
+      - 美国负载均衡
+      - 甲骨文负载均衡
       - 自动选择
       - DIRECT
       - 手动选择
