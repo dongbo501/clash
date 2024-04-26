@@ -15,14 +15,11 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: O2, server: o2.840501.xyz, port: 11557, ports: 30001-31000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: a0893502-05d1-4907-b81c-2ebcf358f69d, auth: a0893502-05d1-4907-b81c-2ebcf358f69d, sni: o2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: O1, server: o1.840501.xyz, port: 11518, ports: 31001-32000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4094cb06-eec7-4a96-a32b-3dcf2c5787b0, auth: 4094cb06-eec7-4a96-a32b-3dcf2c5787b0, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: R1, server: r1.840501.xyz, port: 11519, ports: 32001-33000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: e565cfea-ee56-42ae-9ce5-b3e33de93794, auth: e565cfea-ee56-42ae-9ce5-b3e33de93794, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: O3, server: o3.840501.xyz, port: 11520, ports: 33001-34000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 936cc477-809e-42c3-bb2c-44c27d6beddc, auth: 936cc477-809e-42c3-bb2c-44c27d6beddc, sni: o3.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: O4, server: o4.840501.xyz, port: 11521, ports: 34001-35000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 99f2d0a2-2ed8-46c0-9d2d-1ced6a657778, auth: 99f2d0a2-2ed8-46c0-9d2d-1ced6a657778, sni: o4.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: A1, server: a1.840501.xyz, port: 11522, ports: 35001-36000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: bf25de99-fa88-4efb-a3e1-d5b0869cd54a, auth: bf25de99-fa88-4efb-a3e1-d5b0869cd54a, sni: a1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: A2, server: a2.840501.xyz, port: 11523, ports: 36001-37000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4e0cd308-478b-4e0a-9628-6c17e59d8ed6, auth: 4e0cd308-478b-4e0a-9628-6c17e59d8ed6, sni: a2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: D1, server: d1.840501.xyz, port: 11524, ports: 37001-38000, hope-interval: 15, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8881f996-4bc3-4a9b-bace-832bca7b5061, auth: 8881f996-4bc3-4a9b-bace-832bca7b5061, sni: d1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: R1, server: r1.840501.xyz, port: 11519, ports: 32001-33000, hope-interval: 30, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: e565cfea-ee56-42ae-9ce5-b3e33de93794, auth: e565cfea-ee56-42ae-9ce5-b3e33de93794, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: A1, server: a1.840501.xyz, port: 11522, ports: 35001-36000, hope-interval: 30, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: bf25de99-fa88-4efb-a3e1-d5b0869cd54a, auth: bf25de99-fa88-4efb-a3e1-d5b0869cd54a, sni: a1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: A2, server: a2.840501.xyz, port: 11523, ports: 36001-37000, hope-interval: 30, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 4e0cd308-478b-4e0a-9628-6c17e59d8ed6, auth: 4e0cd308-478b-4e0a-9628-6c17e59d8ed6, sni: a2.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: D1, server: d1.840501.xyz, port: 11524, ports: 37001-38000, hope-interval: 30, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8881f996-4bc3-4a9b-bace-832bca7b5061, auth: 8881f996-4bc3-4a9b-bace-832bca7b5061, sni: d1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: Oracle, server: o1.840501.xyz, port: 14335, ports: 31001-32000, hope-interval: 30, up: "0 Mbps", down: "0 Mbps", client-fingerprint: chrome, type: hysteria2, password: 12f38a3b-b335-4af5-bbd1-c53df2b1fa0b, auth: 12f38a3b-b335-4af5-bbd1-c53df2b1fa0b, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 自动选择
     type: url-test
@@ -33,23 +30,9 @@ proxy-groups:
       - A1
       - A2
       - D1
-      - O1
-      - O2
-      - O3
-      - O4
+      - Oracle
       - R1
-  - name: 甲骨文负载均衡
-    type: load-balance
-    strategy: consistent-hashing
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - O1
-      - O2
-      - O3
-      - O4
-  - name: 美国负载均衡
+  - name: 负载均衡
     type: load-balance
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
@@ -60,16 +43,14 @@ proxy-groups:
       - A2
       - R1
       - D1
+      - Oracle
   - name: 手动选择
     type: select
     proxies:
       - A1
       - A2
       - D1
-      - O1
-      - O2
-      - O3
-      - O4
+      - Oracle
       - R1
   - name: 国内网站
     type: select
@@ -81,21 +62,18 @@ proxy-groups:
       - DIRECT
       - 自动选择
       - 手动选择
-      - 甲骨文负载均衡
-      - 美国负载均衡
+      - 负载均衡
   - name: 苹果服务
     type: select
     proxies:
       - DIRECT
       - 自动选择
       - 手动选择
-      - 甲骨文负载均衡
-      - 美国负载均衡
+      - 负载均衡
   - name: 国外网站
     type: select
     proxies:
-      - 美国负载均衡
-      - 甲骨文负载均衡
+      - 负载均衡
       - 自动选择
       - DIRECT
       - 手动选择
