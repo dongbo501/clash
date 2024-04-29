@@ -44,6 +44,17 @@ proxy-groups:
       - R1
       - D1
       - Oracle
+  - name: emby
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - A1
+      - A2
+      - R1
+      - D1
   - name: 手动选择
     type: select
     proxies:
@@ -78,6 +89,23 @@ proxy-groups:
       - DIRECT
       - 手动选择
 rules:
+  - DOMAIN,misakaf.org,Emby
+  - DOMAIN,zox.show,Emby
+  - DOMAIN,xmsl.org,Emby
+  - DOMAIN,bili.rip,Emby
+  - DOMAIN,carlos.trade,Emby
+  - DOMAIN,ntrrr.top,Emby
+  - DOMAIN,peachmv.me,Emby
+  - DOMAIN,mjjemby.org,Emby
+  - DOMAIN,imetyou.top,Emby
+  - DOMAIN,123456.al,Emby
+  - DOMAIN,ohhhh.org,Emby
+  - DOMAIN,bangumi.ca,Emby
+  - DOMAIN,emby.eu.org,Emby
+  - DOMAIN,mius.uk,Emby
+  - DOMAIN,catlinks.co.uk,Emby
+  - DOMAIN,embyplus.org,Emby
+  - IP-CIDR,152.53.19.232/32,Emby,no-resolve
   - DOMAIN,eaasserts-a.akamaihd.net,游戏平台
   - DOMAIN,originasserts.akamaized.net,游戏平台
   - DOMAIN,gog.salesmanago.com,游戏平台
