@@ -44,7 +44,7 @@ proxy-groups:
       - R1
       - D1
       - Oracle
-  - name: emby
+  - name: Emby
     type: load-balance
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
