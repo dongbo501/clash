@@ -54,22 +54,6 @@ proxies:
   alpn:
   - h3
   udp: true
-- name: A2
-  server: a2.840501.xyz
-  port: 11523
-  ports: 36001-37000
-  hope-interval: 30
-  up: 30 Mbps
-  down: 150 Mbps
-  client-fingerprint: chrome
-  type: hysteria2
-  password: 4e0cd308-478b-4e0a-9628-6c17e59d8ed6
-  auth: 4e0cd308-478b-4e0a-9628-6c17e59d8ed6
-  sni: a2.840501.xyz
-  skip-cert-verify: false
-  alpn:
-  - h3
-  udp: true
 - name: D1
   server: d1.840501.xyz
   port: 11524
@@ -110,7 +94,6 @@ proxy-groups:
   tolerance: 50
   proxies:
   - A1
-  - A2
   - D1
   - Oracle
   - R1
@@ -122,14 +105,12 @@ proxy-groups:
   tolerance: 50
   proxies:
   - A1
-  - A2
   - R1
   - D1
 - name: 手动选择
   type: select
   proxies:
   - A1
-  - A2
   - D1
   - Oracle
   - R1
