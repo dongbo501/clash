@@ -16,9 +16,6 @@ dns:
     - tls://dns.google:853
 proxies:
   - {name: R1, server: r1.840501.xyz, port: 11519, ports: 32001-33000, hope-interval: 30, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: e565cfea-ee56-42ae-9ce5-b3e33de93794, auth: e565cfea-ee56-42ae-9ce5-b3e33de93794, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: A1, server: a1.840501.xyz, port: 11522, ports: 35001-36000, hope-interval: 30, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: bf25de99-fa88-4efb-a3e1-d5b0869cd54a, auth: bf25de99-fa88-4efb-a3e1-d5b0869cd54a, sni: a1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: D1, server: d1.840501.xyz, port: 11524, ports: 37001-38000, hope-interval: 30, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8881f996-4bc3-4a9b-bace-832bca7b5061, auth: 8881f996-4bc3-4a9b-bace-832bca7b5061, sni: d1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: Oracle, server: o1.840501.xyz, port: 14335, ports: 31001-32000, hope-interval: 30, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 12f38a3b-b335-4af5-bbd1-c53df2b1fa0b, auth: 12f38a3b-b335-4af5-bbd1-c53df2b1fa0b, sni: o1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
   - {name: 香港, server: gzdata1.fc-smartglobal.xyz, port: 10001, client-fingerprint: chrome, type: ss, cipher: aes-128-gcm, password: Sj10bnYDe7w6V29E, tfo: false, plugin: obfs, plugin-opts: {mode: http, host: 52a9252860.m.ctrip.com}, udp: true}
   - {name: 日本, server: shdata1.fc-smartglobal.xyz, port: 10002, client-fingerprint: chrome, type: ss, cipher: aes-128-gcm, password: Sj10bnYDe7w6V29E, tfo: false, plugin: obfs, plugin-opts: {mode: http, host: 52a9252860.m.ctrip.com}, udp: true}
   - {name: 新加坡, server: gzdata1.fc-smartglobal.xyz, port: 10003, client-fingerprint: chrome, type: ss, cipher: aes-128-gcm, password: Sj10bnYDe7w6V29E, tfo: false, plugin: obfs, plugin-opts: {mode: http, host: 52a9252860.m.ctrip.com}, udp: true}
@@ -29,10 +26,10 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - A1
-      - D1
-      - Oracle
       - R1
+      - 香港
+      - 日本
+      - 新加坡
   - name: 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -46,21 +43,19 @@ proxy-groups:
   - name: 喜鹊
     type: select
     proxies:
-      - A1
-      - R1
-      - Oracle
+      - 日本
+      - 手动选择
       - DIRECT
       - 香港
-      - 日本
+      - R1
       - 新加坡
-      - 负载均衡
   - name: 手动选择
     type: select
     proxies:
-      - A1
-      - D1
-      - Oracle
       - R1
+      - 日本
+      - 香港
+      - 新加坡
   - name: 国内网站
     type: select
     proxies:
