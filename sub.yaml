@@ -8,6 +8,7 @@ dns:
   enabled: true
   nameserver:
     - https://o.840501.xyz/dns-query
+    - https://dns.nextdns.io/b387d7
 proxies:
   - {name: R1, server: 	142.171.163.18, port: 36801, ports: 30001-31000, hope-interval: 15, up: "30 Mbps", down: "1000 Mbps", client-fingerprint: chrome, type: hysteria2, password: 8b9d9ef6-8b39-427a-864c-770468b6851e, auth: 8b9d9ef6-8b39-427a-864c-770468b6851e, sni: r1.840501.xyz, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
@@ -41,6 +42,8 @@ proxy-groups:
 rules:
   - IP-CIDR,0.0.0.0/32,REJECT
   - IP-CIDR6,::/128,REJECT
+  - DOMAIN-SUFFIX,r1.840501.xyz,国内网站
+  - DOMAIN-SUFFIX,nextdns.io,国内网站
   - DOMAIN-SUFFIX,nbai.tech,国内网站
   - DOMAIN-SUFFIX,840501.xyz,国内网站
   - IP-CIDR,129.150.49.124/32,国内网站
