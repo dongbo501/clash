@@ -70,12 +70,12 @@ rule-providers:
     behavior: domain
     path: "./rule_provider/cnsite.mrs"
     format: mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.list
     interval: 86400
   cnip:
     type: http
     behavior: ipcidr
     path: "./rule_provider/cnip.mrs"
     format: mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.list
     interval: 86400
