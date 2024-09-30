@@ -1,0 +1,81 @@
+dns:
+  ipv6: true
+  respect-rules: true
+  default-nameserver:
+  - 202.96.69.38
+  nameserver:
+   - 8.8.8.8
+   - 1.1.1.1
+  proxy-server-nameserver:
+  - 202.96.69.38
+  nameserver-policy:
+   'rule-set:cnsite': '202.96.69.38'
+   
+proxies:
+  - {name: V.PS-TYO, server: sb.840501.xyz, port: 57732, reality-opts: {public-key: MuJBBX6fZMb45ChKgCCt7Ydi-sgs7qbG-sR3pof7sEs, short-id: de89a2a4}, client-fingerprint: chrome, type: vless, uuid: 3c62d24f-786c-4d5c-ad60-b432885b02e2, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.lovelive-anime.jp, network: tcp, udp: true}
+  - {name: YxVM-HK, server: yxvmhk.840501.xyz, port: 31323, reality-opts: {public-key: VgR4DNn4frCw2JH03EcRAHQ6eLS8T79HqE7vREoKdis, short-id: 10}, client-fingerprint: chrome, type: vless, uuid: da8286e0-ba1f-4c1e-89e2-224b948734c7, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.lovelive-anime.jp, network: tcp, udp: true}
+  - {name: CC, server: cc.840501.xyz, port: 13636, ports: 35001-36000, hop-interval: 15, up: "30 Mbps", down: "420 Mbps", client-fingerprint: chrome, type: hysteria2, password: 9385899f-ef78-4778-b749-e4581a48060f, auth: 9385899f-ef78-4778-b749-e4581a48060f, sni: cc.840501.xyz, skip-cert-verify: false, alpn: [h3]}
+  - {name: HK, server: 8.210.73.170, port: 38621, reality-opts: {public-key: FlqnQNME5eZCrGgN3SEXiqveJswTew3o-Gm9-qGkCC8, short-id: f7bd}, client-fingerprint: chrome, type: vless, uuid: 4a77c9db-f4e1-4ee2-b2d8-afdd2801daaa, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: itunes.apple.com, network: tcp, udp: true}
+
+proxy-groups:
+  - name: 自动选择
+    type: url-test
+    url: http://www.google.com
+    interval: 300
+    tolerance: 25
+    proxies:
+      - V.PS-TYO
+      - YxVM-HK
+      - CC
+      - HK
+      
+  - name: 国内网站
+    type: select
+    proxies:
+      - DIRECT
+      - V.PS-TYO
+      - YxVM-HK
+      - CC
+      - HK
+
+  - name: 游戏平台
+    type: select
+    proxies:
+      - DIRECT
+      - V.PS-TYO
+      - YxVM-HK
+      - CC
+      - HK
+
+  - name: 国外网站
+    type: select
+    proxies:
+      - 自动选择
+      - V.PS-TYO
+      - YxVM-HK
+      - CC
+      - HK
+      - DIRECT
+
+rules:
+  - RULE-SET,cnsite,DIRECT
+  - RULE-SET,cnip,DIRECT
+  - DOMAIN-KEYWORD,023168,V.PS-TYO
+  - MATCH,国外网站
+  - DOMAIN-KEYWORD,023168,V.PS-TYO
+  - MATCH,国外网站
+rule-providers:
+  cnsite:
+    type: http
+    behavior: domain
+    path: "./rule_provider/cnsite.mrs"
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.list
+    interval: 86400
+  cnip:
+    type: http
+    behavior: ipcidr
+    path: "./rule_provider/cnip.mrs"
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.list
+    interval: 86400
