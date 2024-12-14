@@ -1,3 +1,11 @@
+dns:
+  ipv6: true
+  nameserver:
+  - 202.96.69.38
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:7874
 proxies:
   - {name: Alice, server: 8.210.73.170, port: 19259, reality-opts: {public-key: oGeneCUAKa4wWrjNxCzUh89aXUsDhg-2LmM146ST-3I, short-id: 5d}, client-fingerprint: chrome, type: vless, uuid: 2a7eb64d-6433-4709-8a4b-870e7b0dedb6, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.tvb.com, network: tcp, udp: true}
   - {name: Acck HK, server: 8.210.73.170, port: 22666, reality-opts: {public-key: j4m4IWZxAlmD9WoZkr6r1_jiUqpSPSc1T3VIE3i5_Ro, short-id: 3733a3}, client-fingerprint: chrome, type: vless, uuid: 9f76c7ec-c9b6-4080-8534-ba6df346b4b2, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.tvb.com, network: tcp, udp: true}
