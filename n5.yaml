@@ -1,81 +1,33 @@
 dns:
   ipv6: true
-  respect-rules: true
-  default-nameserver:
-  - 202.96.69.38
   nameserver:
-   - 8.8.8.8
-   - 1.1.1.1
-  proxy-server-nameserver:
   - 202.96.69.38
-  nameserver-policy:
-   'rule-set:cnsite': '202.96.69.38'
-   
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:7874
 proxies:
-  - {name: V.PS-TYO, server: sb.840501.xyz, port: 57732, reality-opts: {public-key: MuJBBX6fZMb45ChKgCCt7Ydi-sgs7qbG-sR3pof7sEs, short-id: de89a2a4}, client-fingerprint: chrome, type: vless, uuid: 3c62d24f-786c-4d5c-ad60-b432885b02e2, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.lovelive-anime.jp, network: tcp, udp: true}
-  - {name: YxVM-HK, server: yxvmhk.840501.xyz, port: 31323, reality-opts: {public-key: VgR4DNn4frCw2JH03EcRAHQ6eLS8T79HqE7vREoKdis, short-id: 10}, client-fingerprint: chrome, type: vless, uuid: da8286e0-ba1f-4c1e-89e2-224b948734c7, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.lovelive-anime.jp, network: tcp, udp: true}
-  - {name: CC, server: cc.840501.xyz, port: 13636, ports: 35001-36000, hop-interval: 15, up: "30 Mbps", down: "420 Mbps", client-fingerprint: chrome, type: hysteria2, password: 9385899f-ef78-4778-b749-e4581a48060f, auth: 9385899f-ef78-4778-b749-e4581a48060f, sni: cc.840501.xyz, skip-cert-verify: false, alpn: [h3]}
-  - {name: HK, server: 8.210.73.170, port: 38621, reality-opts: {public-key: FlqnQNME5eZCrGgN3SEXiqveJswTew3o-Gm9-qGkCC8, short-id: f7bd}, client-fingerprint: chrome, type: vless, uuid: 4a77c9db-f4e1-4ee2-b2d8-afdd2801daaa, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: itunes.apple.com, network: tcp, udp: true}
-
+  - {name: Alice, server: 8.210.73.170, port: 19259, reality-opts: {public-key: oGeneCUAKa4wWrjNxCzUh89aXUsDhg-2LmM146ST-3I, short-id: 5d}, client-fingerprint: chrome, type: vless, uuid: 2a7eb64d-6433-4709-8a4b-870e7b0dedb6, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.tvb.com, network: tcp, udp: true}
+  - {name: Acck HK, server: 8.210.73.170, port: 22666, reality-opts: {public-key: j4m4IWZxAlmD9WoZkr6r1_jiUqpSPSc1T3VIE3i5_Ro, short-id: 3733a3}, client-fingerprint: chrome, type: vless, uuid: 9f76c7ec-c9b6-4080-8534-ba6df346b4b2, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.tvb.com, network: tcp, udp: true}
+  - {name: Akile, server: 8.210.73.170, port: 50090, reality-opts: {public-key: mdMvrUFDqBxDVrQXUhKN281-OS6L6YD4vMs0Hcks7Vc, short-id: a1a05fb79b21}, client-fingerprint: chrome, type: vless, uuid: 27087f24-71a8-4ca3-8ecc-eaca73f18ac2, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, servername: www.tvb.com, network: tcp, udp: true}
 proxy-groups:
-  - name: 自动选择
-    type: url-test
-    url: http://www.google.com
-    interval: 300
-    tolerance: 25
-    proxies:
-      - V.PS-TYO
-      - YxVM-HK
-      - CC
-      - HK
-      
-  - name: 国内网站
-    type: select
-    proxies:
-      - DIRECT
-      - V.PS-TYO
-      - YxVM-HK
-      - CC
-      - HK
-
-  - name: 游戏平台
-    type: select
-    proxies:
-      - DIRECT
-      - V.PS-TYO
-      - YxVM-HK
-      - CC
-      - HK
-
-  - name: 国外网站
-    type: select
-    proxies:
-      - 自动选择
-      - V.PS-TYO
-      - YxVM-HK
-      - CC
-      - HK
-      - DIRECT
-
+- name: 国外网站
+  type: select
+  proxies:
+  - Acck HK
+  - Akile
+  - Alice
+  - DIRECT
 rules:
-  - RULE-SET,cnsite,DIRECT
-  - RULE-SET,cnip,DIRECT
-  - DOMAIN-KEYWORD,023168,V.PS-TYO
-  - MATCH,国外网站
-  - DOMAIN-KEYWORD,023168,V.PS-TYO
-  - MATCH,国外网站
+- DOMAIN-SUFFIX,tdzntech.com,DIRECT #停车场
+- DOMAIN-SUFFIX,daliangjj.com,DIRECT #大连公积金
+- RULE-SET,CN Site,DIRECT,no-resolve
+- MATCH,国外网站
 rule-providers:
-  cnsite:
+  CN Site:
     type: http
-    behavior: domain
-    path: "./rule_provider/cnsite.yaml"
+    behavior: classical
+    path: "./rule_provider/CN Site.yaml"
     format: yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.yaml
-    interval: 86400
-  cnip:
-    type: http
-    behavior: ipcidr
-    path: "./rule_provider/cnip.yaml"
-    format: yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.uaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
     interval: 86400
